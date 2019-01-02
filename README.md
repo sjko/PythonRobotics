@@ -4,6 +4,8 @@
 [![Build Status](https://travis-ci.org/AtsushiSakai/PythonRobotics.svg?branch=master)](https://travis-ci.org/AtsushiSakai/PythonRobotics)
 [![Documentation Status](https://readthedocs.org/projects/pythonrobotics/badge/?version=latest)](https://pythonrobotics.readthedocs.io/en/latest/?badge=latest)
 [![Build status](https://ci.appveyor.com/api/projects/status/sb279kxuv1be391g?svg=true)](https://ci.appveyor.com/project/AtsushiSakai/pythonrobotics)
+[![Coverage Status](https://coveralls.io/repos/github/AtsushiSakai/PythonRobotics/badge.svg?branch=master)](https://coveralls.io/github/AtsushiSakai/PythonRobotics?branch=master)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/AtsushiSakai/PythonRobotics.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AtsushiSakai/PythonRobotics/context:python)
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/AtsushiSakai)
 
 Python codes for robotics algorithm.
@@ -44,12 +46,13 @@ Python codes for robotics algorithm.
       * [Reeds Shepp planning](#reeds-shepp-planning)
       * [LQR based path planning](#lqr-based-path-planning)
       * [Optimal Trajectory in a Frenet Frame](#optimal-trajectory-in-a-frenet-frame)
-   * [Path tracking](#path-tracking)
+   * [Path Tracking](#path-tracking)
       * [move to a pose control](#move-to-a-pose-control)
       * [Stanley control](#stanley-control)
       * [Rear wheel feedback control](#rear-wheel-feedback-control)
       * [Linear–quadratic regulator (LQR) speed and steering control](#linearquadratic-regulator-lqr-speed-and-steering-control)
       * [Model predictive speed and steering control](#model-predictive-speed-and-steering-control)
+      * [Nonlinear Model predictive control with C-GMRES](#nonlinear-model-predictive-control-with-c-gmres)
    * [Arm Navigation](#arm-navigation)
       * [N joint arm to point control](#n-joint-arm-to-point-control)
       * [Arm navigation with obstacle avoidance](#arm-navigation-with-obstacle-avoidance)
@@ -79,7 +82,7 @@ See this paper for more details:
 
 # Requirements
 
-- Python 3.6.x
+- Python 3.6.x (2.7 is not supported)
 
 - numpy
 
@@ -95,7 +98,9 @@ See this paper for more details:
 
 This README only shows some examples of this project. 
 
-Full documentation is available online: [https://pythonrobotics.readthedocs.io/](https://pythonrobotics.readthedocs.io/)
+If you are interested in other examples or mathematical backgrounds of each algorithm, 
+
+You can check the full documentation online: [https://pythonrobotics.readthedocs.io/](https://pythonrobotics.readthedocs.io/)
 
 # How to use
 
@@ -121,17 +126,7 @@ Full documentation is available online: [https://pythonrobotics.readthedocs.io/]
 
 <img src="https://github.com/AtsushiSakai/PythonRobotics/raw/master/Localization/extended_kalman_filter/animation.gif" width="640">
 
-This is a sensor fusion localization with Extended Kalman Filter(EKF).
-
-The blue line is true trajectory, the black line is dead reckoning trajectory,
-
-the green point is positioning observation (ex. GPS), and the red line is estimated trajectory with EKF.
-
-The red ellipse is estimated covariance ellipse with EKF.
-
-Ref:
-
-- [PROBABILISTIC ROBOTICS](http://www.probabilistic-robotics.org/)
+Documentation: [Notebook](https://github.com/AtsushiSakai/PythonRobotics/blob/master/Localization/extended_kalman_filter/extended_kalman_filter_localization.ipynb)
 
 ## Particle filter localization
 
@@ -420,7 +415,7 @@ Ref:
 - [Optimal trajectory generation for dynamic street scenarios in a Frenet Frame](https://www.youtube.com/watch?v=Cj6tAQe7UCY)
 
 
-# Path tracking
+# Path Tracking
 
 ## move to a pose control
 
@@ -477,7 +472,17 @@ Path tracking simulation with iterative linear model predictive speed and steeri
 
 Ref:
 
-- [notebook](https://github.com/AtsushiSakai/PythonRobotics/blob/master/PathTracking/model_predictive_speed_and_steer_control/notebook.ipynb)
+- [notebook](https://github.com/AtsushiSakai/PythonRobotics/blob/master/PathTracking/model_predictive_speed_and_steer_control/Model_predictive_speed_and_steering_control.ipynb)
+
+## Nonlinear Model predictive control with C-GMRES
+
+A motion planning and path tracking simulation with NMPC of C-GMRES 
+
+![3](https://github.com/AtsushiSakai/PythonRobotics/raw/master/PathTracking/cgmres_nmpc/animation.gif)
+
+Ref:
+
+- [notebook](https://github.com/AtsushiSakai/PythonRobotics/blob/master/PathTracking/cgmres_nmpc/cgmres_nmpc.ipynb)
 
 
 # Arm Navigation
@@ -551,6 +556,7 @@ This is a list: [Users comments](https://github.com/AtsushiSakai/PythonRobotics/
 - [Antonin RAFFIN](https://github.com/araffin)
 
 - [Alexis Paques](https://github.com/AlexisTM)
+
 
 
 
